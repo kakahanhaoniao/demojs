@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>奇迹会出现的~~</title>
+<style type="text/css">
+body{ background:#666; margin:0; padding:0;}
+.otu{  width:100%; height:474px; background:#333; }
+.owid{width:900px; margin:0 auto; }
+.otu_img{ width:480px; height:474px; float:left; }
+.otu_img img{ border:none; display:block; float:left;}
+.ojs{ color:#FFF; width:300px;float:right; margin-right:100px;}
+</style>
+<script type="text/javascript" >
+	 window.onload=function(){
+		 var arr=[
+		 "遇见你之后，再看别的女人，就好象在侮辱自己的眼睛！",
+		 "漂亮女孩，天生就漂亮。白皙的皮肤，大大的眼睛，秀气的鼻子，饱满的小嘴，再加上一头可爱的自来卷，构成一幅天然的美丽图画。",
+		 "清澈明亮的瞳孔，弯弯的柳眉，长长的睫毛微微地颤动着，白皙无瑕的皮肤透出淡淡红粉，薄薄的双唇如玫瑰花瓣娇嫩欲滴。",
+		 "若说她年纪轻轻，怎生得如此身段，且有一张勾魂摄魄的俏脸。",
+		 "那眼神优雅、娴静，双眼回盼流波，像是俏丽的江南女子；但又挂着一丝倔犟的波纹，又带着北国女儿的神韵。",
+		 "清水出芙蓉，天然去雕饰。——李白",
+		 "双眉有如柳叶刀裁，盈盈笑意眉上来，一句“云髻峨峨，修眉联娟”得以道出碧瑶云云细眉。",
+		 "双目似有千情万怨，道不尽也诉不完，一句“巧笑倩兮，美目盼兮”可能描述碧瑶盈盈眼波",
+		 "她那双大大的眼睛，闪烁着聪颖的光辉，像两颗朗朗的星星。"
+		 ];
+		  var mein=[
+		 "美女1号",
+		 "美女2号",
+		 "美女3号",
+		 "美女4号",
+		 "美女5号",
+		 "美女6号",
+		 "美女7号",
+		 "美女8号",
+		 "美女9号"
+		 ];
+		 var oim=document.getElementById("oimg")
+		 var aimg=oim.getElementsByTagName("img");
+		 var op=document.getElementById("jsao");
+		 var i=0;
+		 for( var i=0; i<aimg.length; i++){
+			 aimg[i].index=i;
+			 aimg[i].onmouseover=function(){
+			       for(var i=0; i<aimg.length;i++ ){
+					   aimg[i].className="";
+					   }
+					   
+					   op.innerHTML="<h2>"+mein[this.index]+"</h2><p>"+arr[this.index]+"</p>";
+			 }
+			 }
+		 }
+</script>
+</head>
+<body>
+<div class="otu">
+   <div class="owid">
+        <div id="oimg" class="otu_img">
+            <img src="img/1.jpg" />
+            <img src="img/2.jpg" />
+            <img src="img/3.jpg" />
+            <img src="img/4.jpg" />
+            <img src="img/5.jpg" />
+            <img src="img/6.jpg" />
+            <img src="img/7.jpg" />
+            <img src="img/8.jpg" />
+            <img src="img/9.jpg" />
+        </div>
+        <div id="jsao" class="ojs">
+        <h2>美女介绍</h2>
+        <p>鼠标移到美女图片上，看美女信息，马上行动吧~~</p>
+        </div>
+  </div>   
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+function selall(){
+	window.input=document.getElementsByName("sve");
+	window.len=input.length;
+	for(i=0;i<len;i++){
+		input[i].checked=true;
+		}
+	}
+function unall(){
+	for(i=0;i<len;i++){
+		input[i].checked=false;
+		}
+	}
+function oppall(){
+	for(i=0;i<len;i++){
+		if(input[i].checked){
+		input[i].checked=false;
+		}else{
+			input[i].checked=true;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<form>
+<input name="sve" type="checkbox" value="1" />1<br>
+<input name="sve" type="checkbox" value="2" />2<br>
+<input name="sve" type="checkbox" value="3" />3<br>
+<input name="sve" type="checkbox" value="4" />4<br>
+<input name="sve" type="checkbox" value="5" />5<br>
+<input name="sve" type="checkbox" value="6" />6<br>
+<input name="sve" type="checkbox" value="7" />7<br>
+<input name="sve" type="button" value="全选" onclick="selall()" />
+<input name="sve" type="button" value="全不选"  onclick="unall()"  />
+<input name="sve" type="button" value="反选"   onclick="oppall()" />
+</form>
+</body>
+</html>

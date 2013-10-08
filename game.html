@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<style>
+*{ margin:0; padding:0}
+body{ margin:0;}
+#container{ width:956px; overflow:hidden; margin-left:0}
+#piccon{ width:600px; height:600px; overflow:hidden; background-color:#d2d2d2; border:3px solid #CCC; float:left; position:relative; z-index:1}
+#piccon img{ width:200px; height:200px; position:absolute; border:none; cursor:move;}
+#view{ float:left; width:350px;}
+#view img{width:350px; }
+</style>
+<script>
+$(function(){
+	var dragimg=$("#piccon img");
+	var piclen=$("#piccon img").length;
+	var event=event || window.event;
+	var i=0;
+	var posx=0;
+	var posy=0;
+	normalposition();
+			$("#piccon img").mousedown(function(event){
+			var index=dragimg.index(this);
+			var top=$(this).offset().top;
+			var left=$(this).offset().left;
+			var yx=event.clientX;
+			var yy=event.clientY;
+				$(this).mousemove(function(event){
+				var sx=event.clientX;
+				var sy=event.clientY;
+				alert(sx);
+				var mtop=top+sy-yy;
+				var mleft=left+sx+yx;
+				if(mtop>400){mtop=400};
+				if(mleft>400){mleft=400};
+				dragimg.eq(index).css("top",mtop+"px").css("left",mleft+"px").css("opacity",1).css("z-index",999);
+				})
+				}).mouseup(function(event){
+					$(this).unbind("mousemove");
+					})	
+					
+    function startgame(){
+		reposition();
+		}
+	function normalposition(){
+		for(i=1;i<=piclen;i++){
+			posx=Math.floor(Math.random()*401);
+			posy=Math.floor(Math.random()*401);
+			$("#img"+i).css("top",posy).css("left",posx).css("opacity",0.6).css("z-index",5);
+			}
+		}
+	function reposition(){
+		for(i=1;i<=piclen;i++){
+			posx=Math.floor(Math.random()*401);
+			posy=Math.floor(Math.random()*401);
+			$("#img"+i).css("top",posy).css("left",posx).css("opacity",0.6);
+			}
+		}
+	})
+</script>
+</head>
+
+<body>
+<div id="container">
+<div id="piccon">
+<img src="images/img2_01.jpg" id="img1" />
+<img src="images/img2_02.jpg" id="img2"/>
+<img src="images/img2_03.jpg" id="img3"/>
+<img src="images/img2_04.jpg" id="img4"/>
+<img src="images/img2_05.jpg" id="img5"/>
+<img src="images/img2_06.jpg" id="img6"/>
+<img src="images/img2_07.jpg" id="img7"/>
+<img src="images/img2_08.jpg" id="img8"/>
+<img src="images/img2_09.jpg" id="img9" />
+</div>
+<div id="view">
+<img src="images/img2.jpg"/>
+<input type="button" value="开始" id="change" onclick="reposition()" />
+</div>
+</div>
+</body>
+</html>

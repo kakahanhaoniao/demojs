@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>去掉offset</title>
+
+<link href="" rel="stylesheet">
+<style type="text/css">
+	div{width: 200px;height: 200px; background: red; margin: 20px; float: left;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var div1=document.getElementById("div1");
+	var div2=document.getElementById("div2");
+		div1.onmouseover=function(){
+			startmove (this,"height",500);
+		}
+		div1.onmouseout=function(){
+			startmove (this,"height",200);
+		}
+		div2.onmouseover=function(){
+			startmove (this,"width",400);
+		}
+		div2.onmouseout=function(){
+			startmove (this,"width",200);
+		}
+
+
+
+}
+
+	function startmove (obj,derection,itarget) {
+		var obd=parseInt(getstyle(obj,derection));
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var speed=(itarget-obd)/6;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(itarget==obd){
+				clearInterval(obj.timer);
+			}else{
+				obd+=speed;
+				obj.style[derection]=obd+"px";
+			}
+		},30)
+	}
+/*
+	offset存在borderbug，所以使用的时候要注意了。为了解决offset的bug，写下了下面的方法。通过这个方法可以获取当前的样式值
+	备注：obj.style.attr的方法只能获取行内样式值
+ */
+	function getstyle(obj,name){
+		if(obj.currentStyle){
+			return obj.currentStyle[name];
+		}else{
+			return getComputedStyle(obj,false)[name];
+		}
+	}
+</script>
+</head>
+<body>
+    <div id="div1">变高</div>
+    <div id="div2">变宽</div>
+
+</body>
+</html>

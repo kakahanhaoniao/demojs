@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<style>
+*{ margin:0; padding:0;}
+body{ margin:0 auto; text-align:center}
+ul{ list-style:none}
+#container{ width:980px; height:255px; overflow:hidden; border:5px solid #d2d2d2; position:relative}
+#container .cons{ position:absolute; top:0; left:0;height:255px;}
+#container .cons ul li{width:980px;height:250px; float:left}
+#container .cons ul li img{width:980px;height:250px;}
+#container .tabnav { position:absolute; bottom:20px; right:25px;}
+#container .tabnav li{height:20px; width:20px; line-height:20px; font-size:13px;color:#333; float:left; margin:0 6px; background-color:#fff;}
+#container .tabnav li.on{ background-color:#f00; color:#fff; font-weight:bold}
+</style>
+<script>
+$(function(){
+	var tab=$(".tabnav li");
+	var len=tab.length;
+	var wid=$("#container .cons li").width();
+	var wids=$(".tabnav li").outerWidth();
+	$(".tabnav").css("width",wids*len*1.7);
+	$(".cons").css("width",len*wid);
+	var i=1;
+	tab.each(function(index){
+		$(this).hover(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			$(".cons").animate({left:-wid*index},500);	
+			i=index+1;		
+			clearInterval(autoplay);	
+			},function(){
+				autoplay=setInterval(play,3000);
+				}			
+			)
+		});
+	var autoplay=setInterval(play,3000);
+	function play(){
+		if(i==(len+1)){i=1};
+		tab.eq(i-1).addClass("on").siblings().removeClass("on");
+		$(".cons").animate({left:-wid*(i-1)},500);
+		i++;
+		}
+	})
+</script>
+</head>
+
+<body>
+<div id="container">
+<div class="cons">
+<ul>
+<li class="on"><img src="img/p1.jpg" /></li>
+<li><img src="img/p2.jpg" /></li>
+<li><img src="img/p3.jpg" /></li>
+</ul>
+</div>
+
+<ul class="tabnav">
+<li class="on">1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+*{margin:0;padding:0;}
+ul{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:none;}
+#menu{width:600px;margin:10px auto;background:#333;overflow:hidden;}
+#menu li{
+ float:left;
+ height:29px;
+ line-height:29px;
+}
+#menu li a{
+ font-size:14px;
+ color:#fff;
+ display:block;
+ padding:0px 20px;
+}
+#menu li a:hover{color:#dc4824;}
+#menu li ul{
+ position:absolute;
+ display:none;
+}
+#menu li ul li{
+ float:none;
+ display:inline;
+}
+#menu li ul li a{
+ background:#dc4824;
+ color:#fff; 
+ border-bottom:1px solid #ad391d;
+}
+#menu li ul li a:hover{
+ background:#923118;
+ color:#fff;
+}
+#menu li ul li ul{
+left:82px;
+top:0;
+}
+#menu li ul li ul li a{width:82px;}
+</style>
+
+</head>
+<body>
+<ul id="menu" class="nav">
+ <li><a href="#">菜单一</a></li>
+    <li><a href="#">菜单二</a>
+     <ul>
+         <li><a href="#">菜单二一</a></li>
+            <li><a href="#">菜单22</a></li>
+            <li><a href="#">菜单23</a></li>
+        </ul>
+    </li>
+    <li><a href="#">菜单三</a>
+     <ul>
+         <li><a href="#">菜单31</a></li>
+            <li><a href="#">菜单32</a>
+             <ul>
+                 <li><a href="#">菜单321</a>
+                 
+                  <ul>
+           <li><a href="#">菜单321</a></li>
+           <li><a href="#">菜单322</a>
+         </ul>
+                 
+                 
+                 </li>
+                 <li><a href="#">菜单322</a></li>
+                </ul>
+            </li>
+            <li><a href="#">菜单33</a></li>
+            <li><a href="#">菜单34</a>
+         
+    
+            
+            </li>
+        </ul>
+    </li>
+    <li><a href="#">菜单四</a></li>
+    <li><a href="#">菜单五</a></li>
+</ul>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+
+        
+    $('.nav li').mouseover(function(){
+        
+        $(this).children('ul').show().end().siblings().children('ul').hide();
+        });
+        
+    $('.nav li').mouseout(function(){
+        $(this).parents('ul ul:not(.nav)').hide();
+        });    
+});
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

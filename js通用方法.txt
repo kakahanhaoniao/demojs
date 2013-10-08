@@ -1,0 +1,6 @@
+1 //用于为id为city的select下拉框添加option
+
+var myOption=document.createElement('option');
+myOption.value=city_name;
+myOption.innerText=city_name;
+document.getElmentById('city').appendChild(myOption);

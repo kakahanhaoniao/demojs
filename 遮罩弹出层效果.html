@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+        <title>demo</title>
+        <style type="text/css">  
+                body{
+                        font: 12px Verdana, Arial, Helvetica, sans-serif; margin:0; padding:0
+                }
+                .mask {    
+                        position: absolute; 
+                        top: 0px; 
+                        filter: alpha(opacity=60); 
+                        background-color: #B2B2B2;  
+                        z-index: 999; 
+                        left: 0px;  
+                        opacity:0.5; 
+                        -moz-opacity:0.5;  
+                }         
+                .content{
+                        padding:25px 20px;
+                        width:600px;
+                        border:1px solid #b2b2b2;
+                        background:#fff;
+                        z-index:1000; position:fixed}
+                .content h3,.content p{
+                        padding:10px;
+                        background:#888;
+                        color:#fff;
+                }
+                #close{
+                        cursor:pointer;
+                        font-size:20px;
+                        color:#888;
+                        position:absolute; 
+                        top:5px;
+                        right:20px;
+                }
+                #open1{
+                        width:90px;
+                        color:#000;
+                        cursor:pointer;
+                        padding:10px;
+                        background:#888;
+                        color:#fff;        
+                }
+        </style>  
+        <script type="text/javascript">  
+                $(function(){
+					var content=$(".content");
+					var ltop=content.outerHeight();
+                    if($.browser.msie && $.browser.version<7){
+					content.css("position","absolute")	
+						};
+					var lleft=($(window).width()-content.width())/2;
+                    content.css("left",lleft+"px");
+					content.css("top",-ltop+"px");
+                        $("#open1").click(function(){
+                                $("#mask").css({
+                                        "height":$(document).height(),
+                                        "width":$(document).width()
+                                }).show();
+								if(content.height()>$(window).height()){
+									var ttop=50
+									}else
+									{
+									var ttop=($(window).height()-content.height())/2;
+										}
+									
+							   content.animate({top:ttop,opacity:0.9},1000);
+                        })
+
+                        $("#close").click(function(){
+							    content.stop();
+                                content.animate({top:-ltop,opacity:0.9},1000);
+                                $("#mask").hide();
+                        })                
+                })
+        </script>  
+ </head>
+ <body>
+ <div style="position:relative; z-index:1">
+                <div id="mask" class="mask"></div>                          
+                <div id="open1">点击显示遮罩层</div>
+         
+                <ul>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                          <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                          <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                        <li>HTML 5</li>
+                </ul>
+           <div class="content">
+                        <h3>HTML 5</h3>
+                        <p>XHTML 是更严谨更纯净的 HTML 版本。
+        
+
+
+                              在 W3School 的 XHTML 教程中，您将学习 HTML 与 XHTML 之间的差异，以及 XHTML 的优势所在。
+
+
+                              我们还将会为您展示将站点升级至 XHTML 的方法，以帮助您快速部署 XHTML 技术。
+
+
+                              XHTML 已经成为优秀前端设计师和工程师的首选。现在开始学习 XHTML ！</p>
+                        <span id="close">x</span>
+           </div>
+           </div>
+ </body>
+</html>

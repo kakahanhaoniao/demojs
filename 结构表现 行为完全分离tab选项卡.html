@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+ul{list-style:none;width:250px;height:20px;line-height:20px;}
+li{ float:left;width:50px;}
+p{border:1px solid #d2d2d2;height:200px; line-height:200px;width:200px; display:block; text-align:center; display:none;}
+p.p01{ display:block}
+</style>
+<script>
+window.onload = function(){
+var lis=document.getElementsByTagName('li');
+var ps=document.getElementsByTagName('p');
+var indexli=0;
+var indexval=function(self,obj){
+	for(var s=0,sus=obj.length;s<sus;s++){
+		if(obj[s]==self){
+			return s;
+		}		
+		}
+	}
+for(var i=0,len=lis.length;i<len;i++){
+	lis[i].onclick=function(){
+		indexli=indexval(this,lis);
+		for(var l=0,lens=ps.length;l<lens;l++){
+			ps[l].style.display=(l==indexli)?"block":"none";
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<ul>
+<li>军事</li>
+<li>人物</li>
+<li>娱乐</li>
+</ul>
+<p class="p01">军事新闻</p>
+<p>人物新闻</p>
+<p>娱乐新闻</p>
+</body>
+</html>

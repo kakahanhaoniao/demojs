@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>1111111111</title>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<style>
+body{ height:8000px;}
+.float{ position:absolute; top:50px; left:50px;}
+</style>
+
+</head>
+
+<body>
+<div class="float">我是浮动的哦 </div>
+<script type="text/javascript">
+$.fn.flaot=function(element){
+        element=$(this);
+                var top=element.position().top;
+                pos=element.css("position");
+                $(window).scroll(function(){
+                        var scrol=$(this).scrollTop();
+                        if(scrol>top){
+                                if($.browser.msie&&$.browser.version>7){
+                                        element.css({"position":"fixed","top":"0"});
+                                }else{
+                                        element.css("top",scrol);
+                                }
+                        }else{
+                                element.css({"position":"absolute","top":top});
+                        }
+                })
+}
+$(function(){
+        //alert("ff")
+        $(".float").flaot();
+})
+</script>
+</body>
+</html>

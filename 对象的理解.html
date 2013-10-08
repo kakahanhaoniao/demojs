@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<script type="text/javascript"> 
+//函数对象
+function bird(){//函数
+	this.fly=function(){
+		alert('fei');
+		}
+	}
+bird.ke=function(){alert('dfsdf')};
+bird.ke();//此为bird的静态属性
+bird.fly();
+var bs=new bird();//创建bird对象
+bs.fly();//这个是bird对象的fly属性
+</script>
+<style>
+#show{height:200px; width:100px; display:none}
+ul li{ list-style-type:decimal}
+</style>
+</head>
+
+<body>
+<ul>
+<li>fdfdsf</li>
+<li>dfsdfdf</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html><!--高速浏览器这是一个html5的页面-->
+<html>
+<head>
+<!--网页编码-->
+<meta charset='utf-8'/>
+
+</head>
+<body>
+<canvas id="can" width="500px" height="400px" style="border:1px solid red"></canvas>
+<script>
+var canvas=document.getElementById("can");
+//画线
+var txt=canvas.getContext("2d");
+txt.moveTo(10,30);
+txt.lineTo(30,50);
+txt.stroke();
+
+//画出一个填充的三角形 路径来画
+//开始新路径
+txt.beginPath();
+txt.moveTo(50,60);
+txt.lineTo(50,120);
+txt.lineTo(100,120);
+//比和路径
+txt.closePath();
+//填充矩形
+//txt.fill();
+//空心矩形
+txt.stroke();
+
+//画矩形
+//stroke画线 fill就是填充
+txt.strokeRect(150, 150,50,80);//空心
+
+//希望改变填充颜色，则该画笔为fillstyle
+txt.fillStyle="#0f0";
+txt.fillRect(120, 20,50,80);
+
+//画圆形（空心）
+txt.beginPath();
+txt.arc(280,200,50,0,360,true);
+txt.closePath();
+txt.stroke();
+
+//画圆形（实心）
+txt.beginPath();
+txt.arc(380,200,50,30,360,true);
+txt.closePath();
+txt.fill();
+
+//画图片drawImage()有几个步骤;
+//1 创建image对象
+var img=new Image();
+//2 指定图片
+img.src="index-ss.jpg";
+//加载完毕后再绘制图形
+img.onload=function(){
+txt.drawImage(img,0,250,187,71);
+}
+
+//在画布上写字
+var text="传智播客";
+//设置字体大小
+txt.fillStyle="#f00";
+txt.font="30px 微软雅黑";
+txt.fillText(text,250,250);
+
+</script>
+</body>
+</html>

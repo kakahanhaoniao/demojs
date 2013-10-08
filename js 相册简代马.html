@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+ul{list-style:none;width:900px;}
+li{width:200px; float:left; margin-right:10px}
+li img{width:200px;}
+p img{width:800px;}
+</style>
+<script>
+window.onload=function(){
+	var ps=document.getElementsByTagName('p')[0];
+	var pspic=ps.getElementsByTagName('img')[0];
+	var lipic=document.getElementsByTagName('li');
+	for(var i=0,lens=lipic.length;i<lens;i++){
+		lipic[i].onclick=function(){
+			var indextab=indexval(this,lipic);
+			var picsrc=lipic[indextab].children[0].src;
+			pspic.src=picsrc;
+			}
+		}
+	var indexval=function(self,obj){
+		for(var l=0,sus=lipic.length;l<sus;l++){
+			if(obj[l]==self){
+				return l;
+				}
+			}
+		}
+	}
+
+</script>
+</head>
+
+<body>
+<p><img src="img/p1.jpg"/></p>
+<ul>
+<li><img src="img/p1.jpg"/></li>
+<li><img src="img/p2.jpg"/></li>
+<li><img src="img/p3.jpg"/></li>
+</ul>
+</body>
+</html>

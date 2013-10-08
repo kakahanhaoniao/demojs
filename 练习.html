@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+#container{ width:500px;height:500px; margin:30px auto;}
+.head{width:200px;height:200px; border:1px solid #222; border-radius:50%; margin:0 auto; background:-moz-linear-gradient(60deg,#0c4a64 0%,#04a6dc 40%,#1cc6ec 100%);background:-webkit-linear-gradient(60deg,#0c4a64 0%,#04a6dc 40%,#1cc6ec 100%);background:-o-linear-gradient(60deg,#0c4a64 0%,#04a6dc 40%,#1cc6ec 100%);   position:relative; z-index:1; box-shadow:0 0 10px -2px #333;}
+/*眼睛*/
+.eyes{width:100px;height:60px; position:absolute; top:40px; left:50px; z-index:10}
+.eyes div{width:48px;height:50px; border:1px solid #222; border-radius:20px; float:left; background-color:#fff; position:relative}
+.eyes .leye:after{content:"";width:10px;height:10px; background:#222; border-radius:50%; right:8px; bottom:8px; position:absolute}
+.eyes .reye:after{content:"";width:10px;height:10px; background:#222; border-radius:50%; left:8px; bottom:8px; position:absolute}
+/*脸*/
+.face{position: absolute; bottom: 10px;left: 15px; width: 170px;height: 130px;border-radius: 50%;background-color:#fff; border:1px solid #222; background:-moz-linear-gradient(60deg,#94969c 0%,#dcdedc 15%,#fff 30%);background:-webkit-linear-gradient(60deg,#94969c 0%,#dcdedc 15%,#fff 30%);background:-o-linear-gradient(60deg,#94969c 0%,#dcdedc 15%,#fff 30%);}
+/*嘴*/
+.mouse{width:100px; height:40px; position:absolute; bottom:20px; left:35px; border-bottom:2px solid #222; border-radius:50%}
+.mouse:after{content:"";width:2px;height:67px; background:#222; position:absolute; left:48px; bottom:-2px}
+/*鼻子*/
+.nose{ position:absolute; top:23px;height:20px;width:20px; left:73px; border-radius:50%; border:1px solid #222;z-index:99; background:-moz-radial-gradient(70% 30%,farthest-side,#fff,#c43a04,#dc3900);background:-webkit-radial-gradient(70% 30%,farthest-side,#fff,#c43a04,#dc3900);background:-o-radial-gradient(70% 30%,farthest-side,#fff,#c43a04,#dc3900);}
+/*胡须*/
+.hair{width:133px;height:60px; position:absolute; top:30px; left:17px;}
+.hair .lefthair{width:60px; position:absolute; left:0; top:10px}
+.hair .lefthair .fhair{width:45px; height:1px; background-color:#222; position:absolute; }
+.hair .lefthair .f01{-moz-transform:rotate(20deg); top:5px; left:5px;-webkit-transform:rotate(20deg);-o-transform:rotate(20deg);}
+.hair .lefthair .f02{ top:20px; left:5px;}
+.hair .lefthair .f03{-moz-transform:rotate(-20deg);-webkit-transform:rotate(-20deg);-o-transform:rotate(-20deg); top:35px; left:5px;}
+.hair .righthair{width:60px; position:absolute; left:73px; top:10px}
+.hair .righthair .fhair{width:45px; height:1px; background-color:#222; position:absolute; }
+.hair .righthair .f01{-moz-transform:rotate(-20deg); top:5px; right:5px;-webkit-transform:rotate(-20deg);-o-transform:rotate(-20deg);}
+.hair .righthair .f02{ top:20px; right:5px;}
+.hair .righthair .f03{-moz-transform:rotate(20deg); top:35px; right:5px;-webkit-transform:rotate(20deg);-o-transform:rotate(20deg);}
+/*身体部分*/
+.body{ z-index:999; position:relative; margin:0 auto; margin-top:-20px;width:250px;height:135px}
+.nab{width:120px;height:13px;border:1px solid #222; border-radius:10px; position:absolute; top:0; left:65px; background:-moz-linear-gradient(top,#ac2a04 0%, #c43a04 20%,#941204 100%);background:-webkit-linear-gradient(top,#ac2a04 0%, #c43a04 20%,#941204 100%);background:-o-linear-gradient(top,#ac2a04 0%, #ce3c03 20%,#941204 100%); z-index:999;box-shadow:0 5px 5px -5px  #666;}
+/*胳膊*/
+.lhands{ position:absolute; left:35px; top:0; z-index:1;}
+.lhands .larm{ background:#0472a4; width:35px;height:95px;-moz-transform:rotate(50deg); background:-moz-linear-gradient(50deg,#047294 0%,#048eb4 100%);-webkit-transform:rotate(50deg); background:-webkit-linear-gradient(50deg,#047294 0%,#048eb4 100%);-o-transform:rotate(50deg); background:-o-linear-gradient(50deg,#047294 0%,#048eb4 100%); border:1px solid #222; border-top:none; box-shadow:0 0 10px -2px #333;}
+.lhands .lhand{ z-index:999; position:absolute; top:50px; left:-35px;width:46px;height:46px; border:1px solid #222; border-radius:45%; background:#fff;background:-moz-linear-gradient(60deg,#d4cecc 0%,#FFF 50%);background:-webkit-linear-gradient(60deg,#d4cecc 0%,#FFF 50%);background:-o-linear-gradient(60deg,#d4cecc 0%,#FFF 50%);}
+.rhands{ position:absolute; right:35px; top:0; z-index:1}
+.rhands .rarm{ background:#0472a4; width:35px;height:95px;-moz-transform:rotate(-50deg); background:#0cc6ec;-webkit-transform:rotate(-50deg); -o-transform:rotate(-50deg); border:1px solid #222; border-top:none;  box-shadow:0 0 10px -2px #333;}
+.rhands .rhand{ z-index:5; position:absolute; top:50px; right:-35px;width:46px;height:46px; border:1px solid #222; border-radius:45%; background:#fff; background:-moz-linear-gradient(60deg,#d4cecc 0%,#FFF 50%);background:-webkit-linear-gradient(60deg,#d4cecc 0%,#FFF 50%);background:-o-linear-gradient(60deg,#d4cecc 0%,#FFF 50%);}
+/*肚子*/
+.belly-top{ top:15px; left:69px;width:110px;height:40px;position:absolute; z-index:5; background:-moz-linear-gradient(left,#0484a8,#0cc6ec);background:-webkit-linear-gradient(left,#0484a8,#0cc6ec);background:-o-linear-gradient(left,#0484a8,#0cc6ec);}
+.belly{ top:55px; left:54px;width:140px;height:80px;position:absolute; z-index:5; background:-moz-linear-gradient(left,#0480a4 0%,#0485a9 15%,#08add2 55%,#0abce2 70%,#0cc6ec 100%);background:-webkit-linear-gradient(left,#0480a4 0%,#0485a9 15%,#08add2 55%,#0abce2 70%,#0cc6ec 100%);background:-o-linear-gradient(left,#0480a4 0%,#0485a9 15%,#08add2 55%,#0abce2 70%,#0cc6ec 100%); border:1px solid #444; border-top:none;box-shadow:10px 0px 10px -10px #333,-10px 0px 10px -10px #333;}
+.belly:after{content:"";width:20px;height:10px;border-radius:20px 20px 0 0; border-top:1px solid #222; position:absolute; bottom:-1px; left:60px; background-color:#fff;box-shadow:inset 10px 0px 10px -10px #333,inset -10px 0px 10px -10px #333,0 -1px 10px -5px #333;}
+/*口袋*/
+.bag{ position:absolute; top:-0px; left:75px; z-index:5; background:#fff; border:1px solid #222; border-radius:50% 50% 50% 50%;width:100px;height:100px; background:-moz-linear-gradient(60deg,#94969c 0%,#dcdedc 15%,#fff 30%);background:-webkit-linear-gradient(60deg,#94969c 0%,#dcdedc 15%,#fff 30%);background:-o-linear-gradient(60deg,#94969c 0%,#dcdedc 15%,#fff 30%);}
+.bag:after{content:""; border:1px solid #222; width:80px; height:40px; border-radius:0 0 80px 80px; position:absolute; bottom:10px; left:10px}
+.lingdang{ position:absolute; top:5px; left:110px; width:30px; height:30px; border-radius:50%;
+ background:-moz-radial-gradient(70% 30%,farthest-side,#fff,#ecee34,#bcb60c);background:-webkit-radial-gradient(70% 30%,farthest-side,#fff,#ecee34,#bcb60c);background:-o-radial-gradient(70% 30%,farthest-side,#fff,#ecee34,#bcb60c); z-index:999; border:1px solid #222;}
+ .lingdang:before{ content:""; width:27px; height:2px; background:#222; position:absolute; top:6px ;left:2px}
+  .lingdang:after{ content:""; width:29px; height:2px; background:#222; position:absolute; top:10px ;left:0px}
+  .lingdang .center{height:8px;width:2px; background:#222; position:absolute; bottom:0; left:14px}
+  .lingdang .center:after{ content:"";width:8px;height:8px; border-radius:50%; background:#222; position:absolute; top:-8px; left:-3px}
+  
+  /*脚丫*/
+  .foot{width:200px; margin:0 auto; position:relative;}
+  .foot:before{ content:""; width:80px; height:25px; border-radius:80px 50px 50px 40px; border:1px solid #222; position:absolute; left:15px; top:0; box-shadow:inset 30px 0 30px -30px #666,0 0 10px -2px #333;}
+    .foot:after{ content:""; width:80px; height:25px; border-radius:50px 80px 40px 50px; border:1px solid #222; position:absolute; right:15px; top:0; box-shadow:inset -30px 0 30px -30px #666,0 0 10px -2px #333;}
+</style>
+</head>
+
+<body>
+<div id="container">
+<!--头部-->
+<div class="head">
+<div class="face">
+<div class="mouse"></div>
+<div class="nose"></div>
+<div class="hair">
+<div class="lefthair">
+<div class="fhair f01"></div>
+<div class="fhair f02"></div>
+<div class="fhair f03"></div>
+</div>
+<div class="righthair">
+<div class="fhair f01"></div>
+<div class="fhair f02"></div>
+<div class="fhair f03"></div>
+</div>
+</div>
+</div>
+<div class="eyes">
+<div class="leye"></div>
+<div class="reye"></div>
+</div>
+</div>
+<!--身体-->
+<div class="body">
+<div class="nab"></div><!--脖子-->
+<div class="lhands"><!--手-->
+<div class="larm"></div>
+<div class="lhand"></div>
+</div>
+<div class="rhands">
+<div class="rarm"></div>
+<div class="rhand"></div>
+</div>
+<div class="belly-top"></div>
+<div class="belly">
+</div>
+<div class="bag"></div>
+<div class="lingdang">
+<div class="center"></div>
+</div>
+</div>
+<!--脚丫-->
+<div class="foot">
+</div>
+</div>
+</body>
+</html>

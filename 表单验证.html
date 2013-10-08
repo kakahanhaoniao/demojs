@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+
+</style>
+<script>
+function chk(){
+	//判断用户名
+	var uname=document.getElementsByName('username')[0];
+	if(uname.value==''||uname.value=='请输入用户名'){
+		alert('请输入用户名');
+		uname.focus();
+		return false;
+		}
+	//判断密码
+	var psw=document.getElementsByName('passwd')[0];
+	var repsw=document.getElementsByName('passwdcfm')[0];
+	if(psw.value==''){
+		alert('请输入密码');
+		psw.focus();
+		return false;
+		}
+	if(repsw.value==''){
+	    alert('请输入密码');
+		repsw.focus();
+		return false;
+	}
+	if(psw.value!=repsw.value){
+		alert('两次输入密码不同');
+		psw.focus();
+		return false;
+		}
+	//选性别
+	var g=0;
+	var sex=document.getElementsByName('gender');
+	for(var i=0,len=sex.length,res=0;i<len;i++){
+		if(sex[i].checked){g+=1}
+		}
+    if(g==0){
+		alert('请选择性别');
+		return false;
+	}
+	//选择爱好
+	var hobby=document.getElementsByName('hobby');
+	for(var s=0,res=0,lens=hobby.length;s<lens;s++){
+		if(hobby[s].checked){res+=1}
+		}
+	if(res<2){
+		alert('最少选择两个兴趣');
+		return false;
+		}
+	//学历
+	var edu=document.getElementsByName('xueli');
+	if(edu.value==''){
+		alert('请选择学历');
+		return false;
+		}
+	}
+</script>
+</head>
+
+ <body>
+        <p>
+            当表单提交时，要求完成：<br />
+            检测用户名是否为空，<br />
+            密码是否填写,<br />
+            两次密码是否一致<br />
+            性别是否选择<br />
+            学历是否选择<br />
+            爱好至少选２种<br />
+            不满足，则不让提交<br />
+        
+        </p>
+        <h2>注册表单</h2>
+        <form method="GET" onsubmit="return chk();">
+            <p>
+            用户名:<input type="text" name="username" value="请输入用户名" />&nbsp;
+            <input type="button" value="检测用户名" onclick="checkuser();" />
+            </p>
+            <p>
+            密码框:<input type="password" name="passwd" />
+            </p>
+            <p>
+            确认密码:<input type="password" name="passwdcfm" />
+            </p>
+            <p>
+            
+            性别:男:<input type="radio" name="gender" value="男" />
+            女:<input type="radio" name="gender" value="女" />
+            春哥:<input type="radio" name="gender" value="春哥" />
+            
+            </p>
+
+            <p>           
+            爱好:<br />
+            篮球:<input type="checkbox" name="hobby" value="篮球" />
+            台球:<input type="checkbox" name="hobby" value="台球" />
+            玻璃球:<input type="checkbox" name="hobby" value="玻璃球" />  
+            </p>
+
+            <p>
+            上传头像:
+            <input type="file" name="touxiang" />   
+            </p>
+
+
+            <p>
+                <select name="xueli">
+                    <option value="">请选择学历</option>
+                    <option value="小学">小学</option>
+                    <option value="中学">中学</option>
+                    <option value="大学">大学</option>
+                    <option value="博士">博士</option> 
+                </select>
+            </p>
+
+            <p>
+                <textarea name="introduce"></textarea>
+            </p>
+                
+            
+            <p>
+            <input type="hidden" name="guoji" value="中国" />
+            <input type="submit" value="确认注册" /> &nbsp;&nbsp;
+            <input type="image" src="../sub.gif" /> &nbsp;&nbsp;
+            <input type="reset" value="重新填写"  />            
+            </p>
+
+       
+        </form>
+    </body>
+</html>

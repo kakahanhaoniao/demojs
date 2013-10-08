@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<style>
+*{ margin:0; padding:0}
+ul{ list-style:none}
+.pic-nav{width:474px;height:474px;}
+.pic-nav ul li{ width:158px;height:158px;  float:left; position:relative; z-index:0;}
+.pic-nav ul li img{ position:absolute; width:158px;height:158px; top:0; left:0; z-index:1;}
+.imginfo{ position:absolute; width:158px;height:158px; top:0; left:0; z-index:9; color:#fff; overflow:hidden}
+.imginfo .before{content:"";width:158px;height:79px; background-color:#333; position:absolute; z-index:10;filter:alpha(opacity=50);-moz-opacity:0.5;	-webkit-opacity: 0.5;opacity: 0.5;top:-30px; left:-158px;}
+.imginfo .after{content:"";width:158px;height:79px; background-color:#333; position:absolute; top:109px; left:158px; z-index:10;filter:alpha(opacity=50);-moz-opacity:0.5;	-webkit-opacity: 0.5;opacity: 0.5;filter:alpha(opacity=50);-moz-opacity:0.5;}
+.imginfo .con{ position:absolute; width:138px;height:138px; top:0; left:0; z-index:11; padding:10px}
+.imginfo .con p{ font-size:12px; line-height:25px}
+</style>
+<script>
+$(function(){
+	var arr=[
+	"遇见你之后，再看别的女人，就好象在侮辱自己的眼睛！",
+		 "漂亮女孩，天生就漂亮。白皙的皮肤，大大的眼睛，秀气的鼻子，饱满的小嘴，再加上一头可爱的自来卷，构成一幅天然的美丽图画。",
+		 "清澈明亮的瞳孔，弯弯的柳眉，长长的睫毛微微地颤动着，白皙无瑕的皮肤透出淡淡红粉，薄薄的双唇如玫瑰花瓣娇嫩欲滴。",
+		 "若说她年纪轻轻，怎生得如此身段，且有一张勾魂摄魄的俏脸。",
+		 "那眼神优雅、娴静，双眼回盼流波，像是俏丽的江南女子；但又挂着一丝倔犟的波纹，又带着北国女儿的神韵。",
+		 "清水出芙蓉，天然去雕饰。——李白",
+		 "双眉有如柳叶刀裁，盈盈笑意眉上来，一句'云髻峨峨，修眉联娟'得以道出碧瑶云云细眉。",
+		 "双目似有千情万怨，道不尽也诉不完，一句'巧笑倩兮，美目盼兮'可能描述碧瑶盈盈眼波",
+		 "她那双大大的眼睛，闪烁着聪颖的光辉，像两颗朗朗的星星。"
+	];
+	 var mein=[
+		 "美女1号",
+		 "美女2号",
+		 "美女3号",
+		 "美女4号",
+		 "美女5号",
+		 "美女6号",
+		 "美女7号",
+		 "美女8号",
+		 "美女9号"
+		 ];
+	var li=$(".pic-nav li");
+	var img=$(".pic-nav img");
+	var info=$(".imginfo");
+	var length=img.length;
+    li.each(function(index){
+		$(this).hover(function(){
+			info.children(".before").eq(index).animate({top:0,left:0},500);
+			info.children(".after").eq(index).animate({top:"79px",left:0},500);
+			info.eq(index).children(".con").fadeIn(2000).html("<b>"+mein[index]+"</b><br><p>"+arr[index]+"</p>");
+			},function(){
+			info.children(".con").fadeOut(0).html("");
+			info.children(".before").stop();
+			info.children(".after").stop();
+			info.children(".before").animate({top:"-30px",left:"-158px"},0);
+			info.children(".after").animate({top:"109px", left:"158px"},0);
+				})
+		})
+	})
+</script>
+</head>
+
+<body>
+<div class="pic-nav">
+<ul>
+<li><img src="img/1.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/2.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li> <img src="img/3.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/4.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/5.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/6.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/7.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/8.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+<li><img src="img/9.jpg" />
+<div class="imginfo">
+<div class="before"></div>
+<div class="after"></div>
+<div class="con"></div>
+</div>
+</li>
+</ul>
+</div>
+</body>
+</html>

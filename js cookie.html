@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Examples</title>
+
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	// 设置cookie
+	function setcookies(name,value,day){
+		var odata=new Date();
+		odata.setDate(odata.getDate()+day);
+		document.cookie=name+"="+value+";expires="+odata;
+	}
+	// 设置cookie
+	function getcookie(name){
+		var arr=document.cookie.split(";");
+		for(var i=0,len=arr.length;i<len;i++){
+			var arr2=arr[i].split("=");
+			if(arr2[0].replace(/(^\s*)|(\s*$)/g, "")==name){
+			 return	arr2[1];
+			}
+
+		}
+		return "";
+	}
+	// 删除cookie
+	function removecookie(name){
+		setcookies(name,1,-1);
+	}
+	setcookies("username","huohuo",30);
+	setcookies("pwd","dfksdflk",1);
+	removecookie("pwd");
+	console.log(getcookie("pwd"));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

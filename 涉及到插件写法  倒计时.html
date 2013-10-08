@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Examples</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<link href="" rel="stylesheet">
+	<script type="text/javascript">
+	/**
+	 * js写法
+	 */
+	// window.onload=function () {
+	// aurocount(50);
+	// }
+	// function aurocount(num){
+	// 	if(num!=0){
+	// 		num--;
+	// 		document.getElementById('count').innerHTML=num;
+	// 		setTimeout("aurocount("+num+")",1000);
+	// 	}
+	// }
+
+
+/**
+ * 插件写法 （闭包）
+ */
+	(function($){        
+		$.fn.aurocount=function(num){
+			if(num!=0){
+			num--;
+			$(this).html(num);
+
+		}
+		}
+	})(jQuery);	  
+	
+	$(function () {
+	var num=50;
+	setInterval(function(){
+		num--;
+		if(num<=0){
+			return false
+		}else{
+			$("#count").aurocount(num)
+		}
+	},1000);
+	})
+	
+	</script>
+</head>
+<body>
+<div>您还有
+	<span style="color:#red" id="count">
+		50
+	</span>
+	秒
+</div>
+    
+</body>
+</html>

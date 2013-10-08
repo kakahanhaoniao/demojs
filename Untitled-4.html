@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>层的拖动</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<style>
+body{ padding:4px; margin:0px; }
+
+
+#drag_window{position:absolute; height:200px; width:300px; top:150px; background:#fff; border:1px solid #ccc; font-size:12px; box-shadow:2px 2px 3px #999; -moz-user-select:none; }
+#drag_window_title{background:#eee; border-bottom:1px solid #ccc; line-height:24px;}
+#drag_window_title h4{ margin:0px; padding:0px; padding-left:8px;}
+#drag_window_main{padding:4px;}
+</style>
+
+<script>
+
+$(function()
+{
+	drag("drag_window_title","drag_window");
+});
+/* 拖拽 */
+	function drag(dragDiv,tagDiv){		//句柄，对象
+		
+		var e,offsetT,offsetL,downX,downY; 
+		$("#"+dragDiv).css('cursor','move');		
+		$("#"+dragDiv).mousedown(function(e)//当鼠标按下的时候
+		{
+			$('#'+tagDiv).bind('selectstart',function(){return false;});
+			e = e||window.event;
+			offsetT = $('#'+tagDiv).offset().top;//相对TOP
+			offsetL =$('#'+tagDiv).offset().left;//相对LEFT
+			downX = e.clientX;//按下鼠标的时候的TOP
+			downY = e.clientY;//按下鼠标时候的LEFT
+			$(document).mousemove (function(e){//鼠标移动的时候
+				$('#'+tagDiv).css('top',offsetT + (e.clientY - downY) + "px");
+				$('#'+tagDiv).css('left',offsetL + (e.clientX - downX) + "px");
+			});
+		}).mouseup(function(e){//当鼠标松开的时候
+				$('#'+tagDiv).unbind('selectstart');
+				$(document).unbind('mousemove');
+			});	
+	}
+</script>
+</head>
+
+<body>
+
+   
+    
+    <div id="drag_window">
+    	<div id="drag_window_title" >
+        	<h4>Title</h4>
+        </div>
+        <div id="drag_window_main">
+        	<ul>
+            	<li>content</li>
+            	<li>content</li>
+            	<li>content</li>
+            	<li>content</li>
+            </ul>
+        </div>
+    </div>
+ 
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>去掉offset</title>
+
+<link href="" rel="stylesheet">
+<style type="text/css">
+	div{width: 200px;height: 200px; background: red; margin: 20px; position: absolute; top: 0px; left: 0px;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	new drag("div1");
+	new limdrag("div2");
+}
+function drag(id){
+	var _this=this;
+	this.xdix=0;
+	this.ydiy=0;
+	this.odiv=document.getElementById(id);
+	this.odiv.onmousedown=function(event){
+		_this.dragCase(event);
+	}
+}
+
+drag.prototype.dragCase=function(event) {
+		var _this=this;
+		var oevent=event||window.event;
+		this.xdix=oevent.clientX-_this.odiv.offsetLeft;
+		this.ydiy=oevent.clientY-_this.odiv.offsetTop;
+		document.onmousemove=function(event){
+				_this.dragmosemove(event);
+				return false;
+			}
+			
+		document.onmouseup=function(){
+			_this.dragmoseup();
+		}
+	}
+	drag.prototype.dragmosemove=function(event) {
+			var oevent=event||window.event;
+			var l=oevent.clientX-this.xdix;
+			var r=oevent.clientY-this.ydiy;
+			if(l<0){
+				l=0
+			}
+			if(l>document.documentElement.clientWidth-this.odiv.offsetWidth){
+				l=document.documentElement.clientWidth-this.odiv.offsetWidth;
+			}
+			if(r<0){
+				r=0
+			}
+			if(r>document.documentElement.clientHeight-this.odiv.offsetHeight){
+				r=document.documentElement.clientHeight-this.odiv.offsetHeight;
+			}
+			this.odiv.style.left=l+"px";
+			this.odiv.style.top=r+"px";
+		}
+	   drag.prototype.dragmoseup = function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+
+		function limdrag(id){
+			drag.call(this,id);
+		}
+		for(var i in drag.prototype){
+			limdrag.prototype[i]=drag.prototype[i];
+		}
+</script>
+</head>
+<body>
+	<p>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/>xcfsddddddddds<br/></p>
+    <div id="div1">变高</div>
+ <div id="div2" style="background-color:green">变高</div>
+</body>
+</html>
